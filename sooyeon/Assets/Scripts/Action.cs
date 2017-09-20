@@ -9,6 +9,7 @@ public class Action : MonoBehaviour
     public GameObject Character;
     public GameObject chat2;
     public GameObject meat;
+    GameObject hitTree;
 
     void Awake()
     {
@@ -43,5 +44,18 @@ public class Action : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         chat2.SetActive(false);
+    }
+
+    public void Attack()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(Character.transform.position, 1f);
+        foreach (Collider2D en in hitColliders)
+        {            
+            Rigidbody2D rb = en.GetComponent<Rigidbody2D>();
+            if (rb != null && rb.tag == "tree")
+            {                
+                rb.gameObject.GetComponent<Animator>().SetBool("hit", true);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="grass" tilewidth="16" tileheight="16" tilecount="18" columns="3">
- <image source="D:/UnityProjects/sooyeon/Assets/Images/tiles/grass.png" width="48" height="96"/>
+ <image source="../sooyeon/Assets/Images/tiles/grass.png" width="48" height="96"/>
  <terraintypes>
   <terrain name="grass" tile="0"/>
  </terraintypes>
@@ -19,4 +19,13 @@
  <tile id="12" terrain="0,,0,0"/>
  <tile id="13" terrain=",0,0,0"/>
  <tile id="14" terrain="0,0,0,0"/>
+ <tile id="15" terrain="0,0,0,0"/>
+ <tile id="16" terrain="0,0,0,0"/>
+ <tile id="17" terrain="0,0,0,0">
+  <animation>
+   <frame tileid="11" duration="100"/>
+   <frame tileid="17" duration="100"/>
+   <frame tileid="11" duration="100"/>
+  </animation>
+ </tile>
 </tileset>
