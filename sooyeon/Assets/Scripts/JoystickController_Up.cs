@@ -13,6 +13,8 @@ public class JoystickController_Up : MonoBehaviour
     public AudioClip soundClip;
     float sec;
 
+    public int lotationNum;
+
     public GameObject Character;
 
     void Awake()
@@ -25,6 +27,7 @@ public class JoystickController_Up : MonoBehaviour
         walking = true;
         directionX = 0;
         directionY = 1;
+        lotationNum = 0;
     }
 
     public void OnClickStopUp()
@@ -39,6 +42,7 @@ public class JoystickController_Up : MonoBehaviour
         walking = true;
         directionX = 0;
         directionY = -1;
+        lotationNum = 180;
     }
 
     public void OnClickStopDown()
@@ -53,6 +57,7 @@ public class JoystickController_Up : MonoBehaviour
         walking = true;
         directionX = -1;
         directionY = 0;
+        lotationNum = 270;
     }
 
     public void OnClickStopLeft()
@@ -67,6 +72,7 @@ public class JoystickController_Up : MonoBehaviour
         walking = true;
         directionX = 1;
         directionY = 0;
+        lotationNum = 90;
     }
 
     public void OnClickStopRight()
@@ -77,7 +83,7 @@ public class JoystickController_Up : MonoBehaviour
     }
 
     void Update()
-    {
+    {      
         if (walking)
         {
             sec += 1f;
