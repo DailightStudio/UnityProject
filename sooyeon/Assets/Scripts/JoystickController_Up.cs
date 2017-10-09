@@ -13,8 +13,6 @@ public class JoystickController_Up : MonoBehaviour
     public AudioClip soundClip;
     float sec;
 
-    public int lotationNum;
-
     public GameObject Character;
 
     void Awake()
@@ -27,7 +25,6 @@ public class JoystickController_Up : MonoBehaviour
         walking = true;
         directionX = 0;
         directionY = 1;
-        lotationNum = 0;
     }
 
     public void OnClickStopUp()
@@ -35,14 +32,15 @@ public class JoystickController_Up : MonoBehaviour
         walking = false;
         directionX = 0;
         directionY = 1;
+        Character.transform.Translate(new Vector3(directionX, directionY, 0) * Time.deltaTime * 0.75f);
     }
+
 
     public void OnClickTouchDown()
     {
         walking = true;
         directionX = 0;
         directionY = -1;
-        lotationNum = 180;
     }
 
     public void OnClickStopDown()
@@ -57,7 +55,6 @@ public class JoystickController_Up : MonoBehaviour
         walking = true;
         directionX = -1;
         directionY = 0;
-        lotationNum = 270;
     }
 
     public void OnClickStopLeft()
@@ -72,7 +69,6 @@ public class JoystickController_Up : MonoBehaviour
         walking = true;
         directionX = 1;
         directionY = 0;
-        lotationNum = 90;
     }
 
     public void OnClickStopRight()

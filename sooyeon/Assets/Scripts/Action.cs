@@ -43,6 +43,25 @@ public class Action : MonoBehaviour
 
     public void Attack()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(ray, out hitInfo, 100f))
+        {
+            //      Debug.Log("hit point : " + hitInfo.point);
+
+            int l = hitInfo.transform.gameObject.layer;
+
+            if (l == clickLayer)
+            {
+                //Debug.Log(" hit object : " + hitInfo.collider.name);
+                hitPosition = hitInfo.point;
+                isMoveState = true;
+            }
+
+        }
+
         target = GameObject.Find("tree");
         target.GetComponent<Animator>().SetBool("stand", false);
         target.GetComponent<Animator>().SetBool("hit", true);
