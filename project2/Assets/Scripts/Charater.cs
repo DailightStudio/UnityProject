@@ -7,6 +7,13 @@ public class Charater : MonoBehaviour
     float attackSpeed = 1f;
     float time = 0f;
     GameObject hitEnemy;
+    public GameObject force;
+
+    void Start()
+    {
+        
+
+    }
 
     void OnCollisionStay2D(Collision2D col)
     {                     
@@ -17,6 +24,7 @@ public class Charater : MonoBehaviour
             if (time >= attackSpeed) //공속
             {                
                 gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("attack", true);
+                force.transform.GetComponent<Animator>().SetBool("attack", true);
                 StartCoroutine(Attack());
                 hitEnemy = col.gameObject;                
                 time = 0f;
@@ -28,6 +36,7 @@ public class Charater : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         gameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("attack", false);
+        force.transform.GetComponent<Animator>().SetBool("attack", false);
         hitEnemy.GetComponent<SpriteRenderer>().color = Color.red;
         StartCoroutine(Hit());
     }
